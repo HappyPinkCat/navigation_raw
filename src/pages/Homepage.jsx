@@ -1,19 +1,23 @@
 import React from 'react'
 import './Homepage.scss'
+import data from '../mock/list'
 export default function Homepage() {
-  let list=[1,2,3,4,5,6,7,8,9,10]
   return (
     <div className='box_container'>
         <header>
             <img src="" alt="" />
             <h1>Homepage</h1>
-            <h3>some description:   Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nesciunt dolor ut in! Lorem, ipsum dolor.    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem porro error doloribus quo perferendis iste voluptatibus qui nulla quam impedit est praesentium sequi libero ad cum, excepturi consequatur dolores magnam. </h3>
+            <h3>some description:   Lorem  adipisicing. Tempore nesciunt dolor ut in! Lorem, ipsum dolor.    </h3>
             <input type="text" name="" id="" className='input_box'/>
         </header>
         <div className='list_container'>
-          {list.map(item=>{
-            return <h4 className='list_item'>标题{item}</h4>
-          })}
+          {data.list.map((item,index)=>(
+             <div className='list_item' key={index}>
+              <h4>标题{item.title}</h4>
+              <p>描述{item.desc}</p>
+              <img src={item.cover} alt="图片demo" className='list_img'/>
+            </div>
+          ))}
         </div>
     </div>
   )
